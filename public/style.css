@@ -27,24 +27,46 @@ main {
 #guest-list .guest-box {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start; /* Alinha os itens no topo */
   background-color: #f0f0f0;
   margin: 10px 0;
   padding: 10px;
   border-radius: 5px;
 }
 
-.dados{
-  margin:3px;
+.guest-box div {
+  display: flex;
+  flex-direction: column; /* Para os inputs ficarem um abaixo do outro */
+  gap: 10px;
+}
+
+.guest-box span {
+  display: block; /* Cada span será exibido em linha separada */
+}
+
+.dados {
+  margin: 3px;
   border-radius: 7px;
   padding: 2px;
   border: 1px solid #ccc;
 }
 
-.guest-box div {
-  display: flex;
-  gap: 20px;
+.guest-box i {
+  margin-left: 10px;
+  cursor: pointer;
 }
+
+.guest-box .edit button, .guest-box .delete button {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.guest-box .edit button:hover, .guest-box .delete button:hover {
+  background-color: #777272;
+}
+
 
 footer {
   position: fixed;

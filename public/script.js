@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <span><strong>Idade:</strong> ${guest.age}</span>
             </div>
             <div>
-              <i class="fas fa-edit"><button class="edit" data-id="${guest._id}"></button></i>
-              <i class="fas fa-trash"><button class="delete" data-id="${guest._id}"></button></i>
+              <i class="fas fa-edit"><button class="edit" data-id="${guest._id}">Editar</button></i>
+              <i class="fas fa-trash"><button class="delete" data-id="${guest._id}">Excluir</button></i>
             </div>
           `;
           guestList.appendChild(guestBox);
