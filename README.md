@@ -21,7 +21,7 @@
 <ol align="center">
   <li>
     <strong>Clone o repositório:</strong>
-    <pre><code>git clone https://github.com/seu-usuario/seu-repositorio.git</code></pre>
+    <pre><code>https://github.com/Derickcsantos/CRUD-MongoDB.git</code></pre>
   </li>
   <li>
     <strong>Instale as dependências:</strong>
