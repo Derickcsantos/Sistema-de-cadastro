@@ -1,7 +1,7 @@
 <h1 align="center">🎉 Lista de Presença 🎉</h1>
 
 <p align="center">
-  Um projeto simples de lista de presença para gerenciar convidados! 🚀
+ Projeto desenvolvido com o intuito de facilitar o processo de criação de uma lista de presença, onde é necessario adicionar, ler, atualizar e excluir. Ao mesmo tempo o projeto foi fundamental para desenvolvimento das minhas habilidades com mongoDB. 
 </p>
 
 <hr>
@@ -12,6 +12,7 @@
   <li>✏️ Editar informações dos convidados.</li>
   <li>🗑️ Remover convidados da lista.</li>
   <li>🔍 Pesquisar convidados na lista.</li>
+  <li>📃 Imprimir lista de presença.</li>
 </ul>
 
 <hr>
@@ -28,7 +29,7 @@
   </li>
 </ol>
 
-<p align="center">Acesse o projeto no navegador:  <strong>https://listaconvidados.vercel.app/ </strong>.</p>
+<p align="center">Acesse o projeto no navegador:  <strong>https://listaconvidados.vercel.app/</strong>.</p>
 
 <h2 align="center">🛠️ Tecnologias Utilizadas</h2>
 <p align="center">
