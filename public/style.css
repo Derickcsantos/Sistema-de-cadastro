@@ -51,10 +51,23 @@ main {
   border: 1px solid #ccc;
 }
 
-.guest-box i {
-  margin-left: 10px;
-  cursor: pointer;
+.guest-box .icons {
+  display: flex;
+  gap: 10px;
 }
+
+
+.guest-box i {
+  cursor: pointer;
+  padding: 5px;
+  background-color: #e6e6e6;
+  border-radius: 50%;
+}
+
+.guest-box i:hover {
+  background-color: #777272;
+}
+
 
 .guest-box .edit button, .guest-box .delete button {
   padding: 5px;
@@ -102,6 +115,7 @@ footer button:hover {
 .modal {
   display: none;
   position: fixed;
+  flex-direction: column;
   top: 0;
   left: 0;
   width: 100%;
@@ -115,11 +129,13 @@ footer button:hover {
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
-  width: 68%;
+  width: 50%;
   height: auto;
   text-align: center;
+  display: flex;
+  flex-direction: column; /* Organiza os campos verticalmente */
+  gap: 20px;
 }
-
 .edit, .delete{
   padding: 5px;
   border: 1px solid #ccc;
@@ -145,4 +161,27 @@ footer button:hover {
   font-size: 30px;
   cursor: pointer;
   
+}
+
+#charts-section {
+  text-align: center;
+}
+
+canvas {
+  max-width: 80%;
+  margin: 20px auto;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+#guests-section {
+  display: none;
+}
+
+#backToChartsBtn {
+  margin-bottom: 20px;
 }

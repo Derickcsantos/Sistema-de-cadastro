@@ -3,43 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lista de Presença</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Cadastro de Convidado</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <nav>
-    <h1>Lista de Convidados</h1>
+    <h1>Cadastro de Convidado</h1>
   </nav>
 
   <main>
-    <div id="guest-list"></div>
+    <form id="cadastro-form">
+      <label for="name">Nome:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="age">Idade:</label>
+      <input type="number" id="age" name="age" required>
+
+      <label for="telefone">Telefone:</label>
+      <input type="tel" id="telefone" name="telefone">
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email">
+
+      <label for="endereco">Endereço:</label>
+      <input type="text" id="endereco" name="endereco">
+
+      <label for="sexo">Sexo:</label>
+      <select id="sexo" name="sexo" required>
+        <option value="Masculino">Masculino</option>
+        <option value="Feminino">Feminino</option>
+      </select>
+
+      <button type="submit">Salvar</button>
+    </form>
   </main>
 
   <footer>
-    <button id="add-guest">+</button>
-    <input type="text" id="search-bar" placeholder="Pesquisar convidado">
-    <button id="search-button"><i class="fas fa-search"></i></button>
+    <button onclick="window.history.back()">Voltar</button>
   </footer>
 
-  <!-- Modal para Adicionar e Editar Convidado -->
-  <div id="guest-modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <form id="guest-form">
-        <label for="name">Nome:</label>
-        <input class="dados" type="text" id="name" name="name" required>
+  <script>
+    document.getElementById('cadastro-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-        <label for="age">Idade:</label>
-        <input class="dados" type="number" id="age" name="age" required>
+      const name = document.getElementById('name').value;
+      const age = document.getElementById('age').value;
+      const telefone = document.getElementById('telefone').value;
+      const email = document.getElementById('email').value;
+      const endereco = document.getElementById('endereco').value;
+      const sexo = document.getElementById('sexo').value;
 
-        <input type="hidden" id="guest-id" /> <!-- Adicione um campo oculto para o ID -->
-        <button class="save" type="submit">Salvar</button>
-      </form>
-    </div>
-  </div>
+      const guestData = { name, age, telefone, email, endereco, sexo };
 
-  
-  <script src="script.js"></script>
+      try {
+        const response = await fetch('/guests', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(guestData),
+        });
+
+        if (response.ok) {
+          alert('Convidado cadastrado com sucesso!');
+          window.location.href = '/'; // Redireciona para a página principal após o cadastro
+        } else {
+          alert('Erro ao cadastrar o convidado. Tente novamente.');
+        }
+      } catch (error) {
+        console.error('Erro ao enviar os dados:', error);
+        alert('Erro ao cadastrar convidado. Verifique a conexão.');
+      }
+    });
+  </script>
 </body>
 </html>

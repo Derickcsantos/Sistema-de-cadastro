@@ -1,0 +1,149 @@
+1. Modal de Adicionar/Editar Convidado
+Elemento HTML: <div id="guest-modal">
+
+Seletor CSS: #guest-modal
+
+Descrição: Esse é o modal que aparece para adicionar ou editar um convidado. Você pode personalizar o estilo do modal, como o fundo, borda, animações, etc.
+
+2. Botão de Fechar o Modal
+Elemento HTML: <span class="close">
+
+Seletor CSS: .close
+
+Descrição: Este é o botão (geralmente um "X") que fecha o modal. Você pode modificar a cor, o tamanho, o estilo de fonte e até a posição do botão de fechamento.
+
+3. Formulário de Adicionar/Editar Convidado
+Elemento HTML: <form id="guest-form">
+
+Seletor CSS: #guest-form
+
+Descrição: Este é o formulário usado para inserir ou editar os dados dos convidados. Você pode editar a aparência dos campos do formulário (input, select, etc.) e os botões de envio.
+
+4. Botão de Adicionar Convidado
+Elemento HTML: <button id="add-guest">
+
+Seletor CSS: #add-guest
+
+Descrição: Esse botão abre o modal para adicionar um novo convidado. Você pode personalizar o estilo do botão, como cor, borda, hover, etc.
+
+5. Lista de Convidados
+Elemento HTML: <div id="guest-list">
+
+Seletor CSS: #guest-list
+
+Descrição: Esse é o contêiner que exibe todos os convidados na tela. Pode ser estilizado para ajustar a disposição dos itens (como uma lista ou grade).
+
+6. Caixa de Convidado (Item na Lista)
+Elemento HTML: <div class="guest-box">
+
+Seletor CSS: .guest-box
+
+Descrição: Cada convidado exibido na lista é envolvido por uma caixa (div com a classe guest-box). Você pode personalizar a aparência de cada caixa de convidado, como a borda, a cor de fundo, o padding, etc.
+
+7. Ícones de Edição e Exclusão
+Elemento HTML: <i class="fas fa-edit edit"> e <i class="fas fa-trash delete">
+
+Seletor CSS para Edição: .edit
+
+Seletor CSS para Exclusão: .delete
+
+Descrição: Esses ícones permitem editar ou excluir um convidado. Você pode estilizar esses ícones, mudar o tamanho, a cor e adicionar efeitos de hover.
+
+8. Campo de Pesquisa
+Elemento HTML: <input id="search-bar" type="text">
+
+Seletor CSS: #search-bar
+
+Descrição: Este é o campo de pesquisa usado para filtrar a lista de convidados. Você pode personalizar o tamanho, a borda, o fundo e os efeitos de foco.
+
+9. Seção de Gráficos
+Elemento HTML: <section id="charts-section">
+
+Seletor CSS: #charts-section
+
+Descrição: Esta é a seção onde os gráficos são exibidos. Você pode personalizar o layout dessa seção, como margens, paddings, fundo, etc.
+
+10. Seção de Lista de Convidados
+Elemento HTML: <section id="guests-section">
+
+Seletor CSS: #guests-section
+
+Descrição: Esta é a seção onde a lista de convidados aparece. Pode ser estilizada para ajustar a aparência da lista de convidados.
+
+11. Botão "Ver Convidados"
+Elemento HTML: <button id="viewGuestsBtn">
+
+Seletor CSS: #viewGuestsBtn
+
+Descrição: Este é o botão que alterna entre as seções de gráficos e lista de convidados. Você pode personalizar o estilo do botão (como a cor, borda, fontes e efeitos de hover).
+
+12. Botão "Voltar para os Gráficos"
+Elemento HTML: <button id="backToChartsBtn">
+
+Seletor CSS: #backToChartsBtn
+
+Descrição: Este botão leva o usuário de volta à seção de gráficos. Como o botão "Ver Convidados", você pode personalizar a aparência.
+
+13. Ícones de Gráficos (Seção de Gráficos)
+Elemento HTML: <canvas id="totalGuestsChart">, <canvas id="ageGroupChart">, <canvas id="genderStatsChart">, <canvas id="monthlyStatsChart">
+
+Seletor CSS: #totalGuestsChart, #ageGroupChart, #genderStatsChart, #monthlyStatsChart
+
+Descrição: Estes são os elementos de gráfico exibidos na seção de gráficos. Você pode ajustar o tamanho, borda e o layout dos gráficos.
+
+14. Botão de Download para CSV
+Elemento HTML: <button id="downloadBtnCSV">
+
+Seletor CSS: #downloadBtnCSV
+
+Descrição: Este é o botão para fazer o download dos convidados em formato CSV. Estilize o botão de acordo com o tema desejado.
+
+15. Botão de Download para PDF
+Elemento HTML: <button id="downloadBtnPDF">
+
+Seletor CSS: #downloadBtnPDF
+
+Descrição: Este é o botão para gerar o download do arquivo PDF com a lista de convidados. Personalize o botão conforme necessário.
+
+16. Caixa de Seleção de Sexo (Campo do Formulário)
+Elemento HTML: <select id="sexo">
+
+Seletor CSS: #sexo
+
+Descrição: Este é o campo de seleção para o sexo do convidado. Você pode personalizar a aparência da caixa de seleção e suas opções.
+
+17. Campo de Nome
+Elemento HTML: <input id="name">
+
+Seletor CSS: #name
+
+Descrição: Este campo de entrada permite inserir o nome do convidado. Estilize o campo conforme necessário.
+
+18. Campo de Idade
+Elemento HTML: <input id="age">
+
+Seletor CSS: #age
+
+Descrição: Este campo de entrada permite inserir a idade do convidado. Você pode personalizar a aparência.
+
+19. Campo de Telefone
+Elemento HTML: <input id="telefone">
+
+Seletor CSS: #telefone
+
+Descrição: Campo de entrada para o telefone do convidado. Personalize o estilo do campo de entrada.
+
+20. Campo de Email
+Elemento HTML: <input id="email">
+
+Seletor CSS: #email
+
+Descrição: Campo para o email do convidado. O estilo do campo pode ser alterado.
+
+21. Campo de Endereço
+Elemento HTML: <input id="endereco">
+
+Seletor CSS: #endereco
+
+Descrição: Campo para o endereço do convidado. Estilize como desejar.
+

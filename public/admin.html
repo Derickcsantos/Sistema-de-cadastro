@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestão de Convidados</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Adicionando Chart.js -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+  <nav>
+    <h1>Gestão de Convidados</h1>
+  </nav>
+
+  <main>
+    <!-- Seção de Gráficos -->
+    <div id="charts-section">
+      <h2>Estatísticas de Convidados</h2>
+      <!-- Gráfico de total de convidados -->
+      <canvas id="totalGuestsChart"></canvas> 
+      <!-- Gráfico de faixa etária (maiores e menores de 18) -->
+      <canvas id="ageGroupChart"></canvas> 
+      <!-- Gráfico de gênero -->
+      <canvas id="genderStatsChart"></canvas>
+      <!-- Gráfico de usuários cadastrados por mês -->
+      <canvas id="monthlyStatsChart"></canvas>
+
+      <button id="viewGuestsBtn">Ver todos os convidados</button>
+    </div>
+
+    <!-- Seção de Lista de Convidados -->
+    <div id="guests-section" style="display: none;">
+      <button id="backToChartsBtn">Voltar para os gráficos</button>
+      <input type="text" id="search-bar" placeholder="Pesquisar por nome...">
+      <div id="guest-list"></div>
+      <button id="downloadBtnCSV">Baixar Lista em CSV</button>
+      <button id="downloadBtnPDF">Baixar Lista em PDF</button>
+      <button id="add-guest">Adicionar Convidado</button>
+    </div>
+  </main>
+
+  <!-- Modal de Cadastro/Edicao de Convidado -->
+  <div id="guest-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3 id="modal-title">Adicionar Convidado</h3>
+      <form id="guest-form">
+        <input type="text" id="name" placeholder="Nome" required>
+        <input type="number" id="age" placeholder="Idade" required>
+        <input type="text" id="telefone" placeholder="Telefone">
+        <input type="email" id="email" placeholder="E-mail">
+        <input type="text" id="endereco" placeholder="Endereço">
+        
+        <!-- Novo campo de sexo -->
+        <label for="gender">Sexo:</label>
+        <select id="sexo" required>
+          <option value="Masculino">Masculino</option>
+          <option value="Feminino">Feminino</option>
+        </select>
+        
+
+        <input type="hidden" id="guest-id">
+        <button type="submit">Salvar</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Todos os direitos reservados</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <!-- Carrega o jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.22/jspdf.plugin.autotable.min.js"></script>
+
+</body>
+</html>
