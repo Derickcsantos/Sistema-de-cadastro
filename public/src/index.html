@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page - Sistema de Cadastro</title>
+  <link rel="stylesheet" href="./css/home.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://vlibras.gov.br/app/vlibras.js"></script>
+</head>
+<body>
+
+  <!-- Menu -->
+  <header class="navbar">
+    <div class="logo">
+      <a href="home"><img class="logoImg" src="./img/Logo DCS.png" alt="Logo"></a>
+    </div>
+    <nav class="menu">
+      <ul>
+        <li><a href="#home">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a onclick="window.location.href = '/cadastro';">Cadastro</a></li>
+      </ul>
+      <div class="menu-mobile" onclick="toggleMenu()">
+        <span>&#9776;</span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Carrossel de Banners -->
+  <section id="home" class="carousel">
+    <div class="carousel-slide">
+      <img src="./img/bem-vindo.jpg" alt="Banner ">
+    </div>
+  </section>
+
+  <!-- Cards -->
+  <section class="cards">
+    <div class="card">
+      <h3>Fácil Cadastro</h3>
+      <p>Cadastro rápido e simples para qualquer usuário.</p>
+      <button class="irCadastro" onclick="window.location.href = '/cadastro';">Cadastrar</button>
+    </div>
+    <div class="card">
+      <h3>Segurança</h3>
+      <p>O sistema possui um alto nível de segurança para proteção de dados.</p>
+      <button class="verDocumetacao">Ver documentação</button>
+    </div>
+    <div class="card">
+      <h3>Visão geral</h3>
+      <p>Visão geral de todos os dados registrados de forma dinâmica ou profissional, com emissão de documentos e criação de planilhas.</p>
+      <button class="irLogin">Acessar painel</button>
+    </div>
+  </section>
+
+  <!-- Sobre o Sistema -->
+  <section class="about" id="sobre">
+    <div class="sobre-content">
+      <div class="sobre-marketing">
+        <img src="./img/image.png" alt="">
+      </div>
+      <div class="sobre-text">
+        <h2>Sobre o Sistema</h2>
+        <p>Você já se viu na necessidade de registrar dados de pessoas em blocos de notas, folhas de papel ou até mesmo em mensagens no WhatsApp? Durante esse processo, já tentou imaginar uma maneira mais eficiente e prática de realizar essa tarefa? <br> Este sistema foi desenvolvido com o objetivo de aprimorar e agilizar o processo de cadastro e visualização de informações. Ele conta com um formulário intuitivo para o registro dos dados e um painel administrativo seguro, que permite a consulta das informações de forma organizada e dinâmica. O projeto foi pensado para ser acessível a partir de qualquer dispositivo com conexão à internet, garantindo praticidade e flexibilidade.</p>
+        <div class="links">
+          <i onclick="window.location.href = 'https://www.linkedin.com/in/derick-campos-santos/'" class="fa-brands fa-linkedin"></i>
+          <i onclick="window.location.href = 'https://github.com/derickcsantos'" class="fa-brands fa-square-github"></i>
+          <i onclick="window.location.href = 'https://api.whatsapp.com/send/?phone=5511986261007&text&type=phone_number&app_absent=0'" class="fa-brands fa-square-whatsapp"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulário de Contato -->
+  <section class="contact" id="contato">
+    <h2>Contato</h2>
+    <form action="#" method="POST">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+      
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="mensagem">Mensagem:</label>
+      <textarea id="mensagem" name="mensagem" required></textarea>
+      
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <!-- API VLibras -->
+  <div id="vlibras-container"></div>
+
+  <!-- Scroll Up Button -->
+  <button id="scrollUpBtn" onclick="scrollUp()">↑</button>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; Desenvolvido por <a class="marketing" href="https://www.linkedin.com/in/derick-campos-santos/">Dérick Campos Santos</a></p>
+  </footer>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>

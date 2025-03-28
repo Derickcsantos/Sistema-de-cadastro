@@ -1,0 +1,253 @@
+/* Reset de Estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'poppins', sans-serif;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Menu */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #360304;
+    padding: 15px;
+    cursor: pointer;
+  }
+  
+  .navbar .logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+  }
+
+  .logoImg{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+  .navbar .menu ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  .navbar .menu ul li {
+    margin-left: 20px;
+  }
+  
+  .navbar .menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .menu-mobile {
+    display: none;
+    cursor: pointer;
+    font-size: 30px;
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    .navbar .menu ul {
+      display: none;
+    }
+  
+    .menu-mobile {
+      display: block;
+    }
+  }
+  
+  /* Carrossel */
+  .carousel {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .carousel-slide img {
+    width: 100%;
+    height: 800px;
+  }
+  
+  /* Sobre o Sistema */
+  .about {
+    text-align: center;
+    padding: 50px;
+    background-color: #f4f4f4;
+    height: 500px;
+  }
+  
+  .about h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #360304;
+  }
+  
+  .about p {
+    font-size: 18px;
+    color: #000;
+  }
+
+  .sobre-content{
+    display: flex;
+    flex-direction: row-reverse;
+    height: auto;
+  }
+
+  .sobre-marketing,
+  .sobre-text{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sobre-text{
+    text-align: justify;
+    padding: 30px;
+  }
+
+  .sobre-text p{
+    font-size: 1.4rem;
+    color: #000000de;
+    letter-spacing: 1px;
+  }
+
+  .sobre-marketing img{
+    width: 80%;
+    height: auto;
+    border-radius: 50%;
+  }
+
+  .sobre-text .links{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .links i{
+    font-size: 40px;
+    color: #360304;
+    margin: 5px;
+    padding: 20px;
+  }
+  
+  /* Cards */
+  .cards {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+  }
+  
+  .card {
+    background-color: #fff;
+    padding: 20px;
+    width: 25%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #360304;
+  }
+  
+  .card p {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  /* Contato */
+  .contact {
+    padding: 50px;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .contact form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #360304;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 800px;
+    width: 100%;
+  }
+  
+  .contact label {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+  .contact input, .contact textarea {
+    padding: 10px;
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    background-color: #f4f4f4;
+  }
+
+  .contact button {
+    padding: 10px 20px;
+    background-color: #360304;
+    color: white;
+    border: 1px solid #fff;
+    cursor: pointer;
+  }
+
+  .contact button:hover{
+    background-color: #400405;
+  }
+  
+  /* Scroll Up */
+  #scrollUpBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #360304;
+    color: white;
+  }
+
+  .marketing{
+    color: #ffff;
+    text-decoration: underline;
+  }
+  
+  

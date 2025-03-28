@@ -24,7 +24,7 @@ mongoose.connect(mongoURI, {
 .catch(err => console.error('Erro na conexão com MongoDB:', err));
 
 app.use(express.json()); // Middleware para analisar requisições JSON
-app.use(express.static(path.join(__dirname, 'public'))); // Serve arquivos estáticos do diretório 'public'
+app.use(express.static(path.join(__dirname, 'public', 'src'))); // Serve arquivos estáticos do diretório 'public/src'
 
 // Rota para obter todos os convidados
 app.get('/guests', async (req, res) => {
@@ -38,11 +38,11 @@ app.get('/guests', async (req, res) => {
 });
 
 app.get('/admin', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+  res.sendFile(path.join(__dirname, 'public', 'src', 'admin.html')); // Atualizando o caminho para 'src/admin.html'
 });
 
 app.get('/cadastro', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'cadastro.html'));
+  res.sendFile(path.join(__dirname, 'public', 'src', 'cadastro.html')); // Atualizando o caminho para 'src/cadastro.html'
 });
 
 // Rota para obter estatísticas dos convidados (total e divisão por idade)

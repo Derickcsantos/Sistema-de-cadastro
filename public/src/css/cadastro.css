@@ -1,0 +1,90 @@
+*{
+margin: 0;
+padding: 0;
+text-decoration: none;
+list-style: none;
+box-sizing: border-box;
+font-family: 'poppins', sans-serif;
+}
+
+
+.navbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+background-color: #360304;
+padding: 15px;
+cursor: pointer;
+}
+
+.navbar .logo a {
+color: white;
+text-decoration: none;
+font-size: 24px;
+}
+
+.logoImg{
+width: 50px;
+height: 50px;
+border-radius: 50%;
+}
+
+.navbar .menu ul {
+display: flex;
+list-style: none;
+}
+
+.navbar .menu ul li {
+margin-left: 20px;
+}
+
+.navbar .menu ul li a {
+color: white;
+text-decoration: none;
+font-size: 18px;
+}
+
+.menu-mobile {
+display: none;
+cursor: pointer;
+font-size: 30px;
+color: white;
+}
+
+@media (max-width: 768px) {
+.navbar .menu ul {
+    display: none;
+}
+
+.menu-mobile {
+    display: block;
+}
+}
+
+h1{
+    text-align: center;
+    margin: 20px;
+}
+
+#cadastro-form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #360304;
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+#cadastro-form input, 
+#cadastro-form select{
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    margin: 10px;
+}
