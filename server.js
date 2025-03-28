@@ -41,6 +41,10 @@ app.get('/admin', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'admin.html'));
 });
 
+app.get('/cadastro', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'cadastro.html'));
+});
+
 // Rota para obter estatísticas dos convidados (total e divisão por idade)
 app.get('/guest-stats', async (req, res) => {
   try {

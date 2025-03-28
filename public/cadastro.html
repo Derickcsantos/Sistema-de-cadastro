@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de usuário</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <h1>Cadastro de Usuário</h1>
+  </nav>
+
+  <main>
+    <form id="cadastro-form">
+      <label for="name">Nome:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="age">Idade:</label>
+      <input type="number" id="age" name="age" required>
+
+      <label for="telefone">Telefone:</label>
+      <input type="tel" id="telefone" name="telefone">
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email">
+
+      <label for="endereco">Endereço:</label>
+      <input type="text" id="endereco" name="endereco">
+
+      <label for="sexo">Sexo:</label>
+      <select id="sexo" name="sexo" required>
+        <option value="Masculino">Masculino</option>
+        <option value="Feminino">Feminino</option>
+      </select>
+
+      <button type="submit">Salvar</button>
+    </form>
+  </main>
+
+  <footer>
+    <button onclick="window.history.back()">Voltar</button>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

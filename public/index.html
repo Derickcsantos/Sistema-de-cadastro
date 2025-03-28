@@ -3,78 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro de Convidado</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Landing Page - Sistema de Cadastro</title>
+  <link rel="stylesheet" href="cadastro.css">
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://vlibras.gov.br/app/vlibras.js"></script>
 </head>
 <body>
-  <nav>
-    <h1>Cadastro de Convidado</h1>
-  </nav>
 
-  <main>
-    <form id="cadastro-form">
-      <label for="name">Nome:</label>
-      <input type="text" id="name" name="name" required>
+  <!-- Menu -->
+  <header class="navbar">
+    <div class="logo">
+      <a href="home"><img class="logoImg" src="./Logo DCS.png" alt="Logo"></a>
+    </div>
+    <nav class="menu">
+      <ul>
+        <li><a href="home">Início</a></li>
+        <li><a href="sobre">Sobre</a></li>
+        <li><a onclick="window.location.href = '/cadastro';">Cadastro</a></li>
+        <li><a href="contato">Contato</a></li>
+      </ul>
+      <div class="menu-mobile" onclick="toggleMenu()">
+        <span>&#9776;</span>
+      </div>
+    </nav>
+  </header>
 
-      <label for="age">Idade:</label>
-      <input type="number" id="age" name="age" required>
+  <!-- Carrossel de Banners -->
+  <section id="home" class="carousel">
+    <div class="carousel-slide">
+      <img src="WhatsApp Image 2025-03-28 at 10.58.44_3789596d.jpg" alt="Banner 2">
+      <img src="WhatsApp Image 2025-03-28 at 10.58.44_31712a22.jpg" alt="Banner 1">
+      <img src="WhatsApp Image 2025-03-28 at 10.58.44_676ea0f5.jpg" alt="Banner 3">
+    </div>
+  </section>
 
-      <label for="telefone">Telefone:</label>
-      <input type="tel" id="telefone" name="telefone">
+  <!-- Sobre o Sistema -->
+  <section class="about" id="sobre">
+    <h2>Sobre o Sistema</h2>
+    <p>Este sistema foi desenvolvido para facilitar o processo de cadastro de usuários de forma simples e eficiente.</p>
+  </section>
 
+  <!-- Cards -->
+  <section class="cards">
+    <div class="card">
+      <h3>Fácil Cadastro</h3>
+      <p>Cadastro rápido e simples para qualquer usuário.</p>
+      <button class="irCadastro" onclick="window.location.href = '/cadastro';">Cadastrar</button>
+    </div>
+    <div class="card">
+      <h3>Segurança</h3>
+      <p>O sistema possui um alto nível de segurança para proteção de dados.</p>
+      <button class="verDocumetacao">Ver documentação</button>
+    </div>
+    <div class="card">
+      <h3>Visão geral</h3>
+      <p>Visão geral de todos os dados registrados de forma dinâmica ou profissional, com emissão de documentos e criação de planilhas.</p>
+      <button class="irLogin">Acessar painel</button>
+    </div>
+  </section>
+
+  <!-- Formulário de Contato -->
+  <section class="contact" id="contato">
+    <h2>Contato</h2>
+    <form action="#" method="POST">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+      
       <label for="email">E-mail:</label>
-      <input type="email" id="email" name="email">
-
-      <label for="endereco">Endereço:</label>
-      <input type="text" id="endereco" name="endereco">
-
-      <label for="sexo">Sexo:</label>
-      <select id="sexo" name="sexo" required>
-        <option value="Masculino">Masculino</option>
-        <option value="Feminino">Feminino</option>
-      </select>
-
-      <button type="submit">Salvar</button>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="mensagem">Mensagem:</label>
+      <textarea id="mensagem" name="mensagem" required></textarea>
+      
+      <button type="submit">Enviar</button>
     </form>
-  </main>
+  </section>
 
+  <!-- API VLibras -->
+  <div id="vlibras-container"></div>
+
+  <!-- Scroll Up Button -->
+  <button id="scrollUpBtn" onclick="scrollUp()">↑</button>
+
+  <!-- Footer -->
   <footer>
-    <button onclick="window.history.back()">Voltar</button>
+    <p>&copy; Desenvolvido por <a class="marketing" href="https://www.linkedin.com/in/derick-campos-santos/">Dérick Campos Santos</a></p>
   </footer>
 
-  <script>
-    document.getElementById('cadastro-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const name = document.getElementById('name').value;
-      const age = document.getElementById('age').value;
-      const telefone = document.getElementById('telefone').value;
-      const email = document.getElementById('email').value;
-      const endereco = document.getElementById('endereco').value;
-      const sexo = document.getElementById('sexo').value;
-
-      const guestData = { name, age, telefone, email, endereco, sexo };
-
-      try {
-        const response = await fetch('/guests', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(guestData),
-        });
-
-        if (response.ok) {
-          alert('Convidado cadastrado com sucesso!');
-          window.location.href = '/'; // Redireciona para a página principal após o cadastro
-        } else {
-          alert('Erro ao cadastrar o convidado. Tente novamente.');
-        }
-      } catch (error) {
-        console.error('Erro ao enviar os dados:', error);
-        alert('Erro ao cadastrar convidado. Verifique a conexão.');
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
