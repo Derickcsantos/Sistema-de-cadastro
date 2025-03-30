@@ -10,38 +10,59 @@
 
 </head>
 <body>
-  <nav>
-    <h1>Gestão de Convidados</h1>
-  </nav>
+  <header class="navbar">
+    <div class="logo">
+      <a onclick="window.location.href = '/';" href="home"><img class="logoImg" src="./img/Logo DCS.png" alt="Logo"></a>
+    </div>
+    <nav class="menu">
+      <ul>
+        <li><a onclick="window.location.href = '/';">Início</a></li>
+        <li><a onclick="window.location.href = '/cadastro';">Cadastro</a></li>
+        <li><a onclick="window.location.href = '/admin';">Graficos</a></li>
+        <li><a id="viewGuestsBtn">Visão geral</a></li>
+      </ul>
+      <div class="menu-mobile" onclick="toggleMenu()">
+        <span>&#9776;</span>
+      </div>
+    </nav>
+  </header>
 
   <main>
     <!-- Seção de Gráficos -->
     <div id="charts-section">
-      <h2>Estatísticas de Convidados</h2>
-      <!-- Gráfico de total de convidados -->
-      <canvas id="totalGuestsChart"></canvas> 
-      <!-- Gráfico de faixa etária (maiores e menores de 18) -->
-      <canvas id="ageGroupChart"></canvas> 
-      <!-- Gráfico de gênero -->
-      <canvas id="genderStatsChart"></canvas>
-      <!-- Gráfico de usuários cadastrados por mês -->
-      <canvas id="monthlyStatsChart"></canvas>
+      <h2>Painel administrativo</h2>
+      <!-- Contêiner de gráficos -->
+      <div class="chart-container">
+        <canvas class="chart" id="totalGuestsChart"></canvas> 
+      </div>
+      <div class="chart-container">
+        <canvas class="chart" id="ageGroupChart"></canvas> 
+      </div>
+      <div class="chart-container">
+        <canvas class="chart" id="genderStatsChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <canvas class="chart" id="monthlyStatsChart"></canvas>
+      </div>
 
-      <button id="viewGuestsBtn">Ver todos os convidados</button>
+
     </div>
 
-    <!-- Seção de Lista de Convidados -->
-    <div id="guests-section" style="display: none;">
-      <button id="backToChartsBtn">Voltar para os gráficos</button>
-      <input type="text" id="search-bar" placeholder="Pesquisar por nome...">
-      <div id="guest-list"></div>
-      <button id="downloadBtnCSV">Baixar Lista em CSV</button>
-      <button id="downloadBtnPDF">Baixar Lista em PDF</button>
-      <button id="add-guest">Adicionar Convidado</button>
+    <div id="guests-section" class="container">
+      <div id="servicos-lista" class="toolbar">
+        <button id="backToChartsBtn" class="btn">Voltar para os gráficos</button>
+        <input type="text" id="search-bar" placeholder="Pesquisar por nome..." class="input-field">
+        <div class="botoes-tool">
+          <button id="downloadBtnCSV" class="btn">Baixar CSV</button>
+          <button id="downloadBtnPDF" class="btn">Baixar PDF</button>
+          <button id="add-guest" class="btn primary">Adicionar Usuário</button>
+        </div>
+      </div>
+      <div id="guest-list" class="guest-list"></div>
     </div>
-  </main>
 
-  <!-- Modal de Cadastro/Edicao de Convidado -->
+
+    <!-- Modal de Cadastro/Edicao de Convidado -->
   <div id="guest-modal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -66,9 +87,12 @@
       </form>
     </div>
   </div>
+  </main>
+
+  
 
   <footer>
-    <p>&copy; 2025 Todos os direitos reservados</p>
+    <p>&copy; Desenvolvido por <a class="marketing" href="https://www.linkedin.com/in/derick-campos-santos/">Dérick Campos Santos</a></p>
   </footer>
 
   <script src="./js/script.js"></script>

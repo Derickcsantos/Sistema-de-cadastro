@@ -14,7 +14,7 @@
   <!-- Menu -->
   <header class="navbar">
     <div class="logo">
-      <a href="home"><img class="logoImg" src="./img/Logo DCS.png" alt="Logo"></a>
+      <a onclick="window.location.href = '/';" href="home"><img class="logoImg" src="./img/Logo DCS.png" alt="Logo"></a>
     </div>
     <nav class="menu">
       <ul>
@@ -39,27 +39,28 @@
   <!-- Cards -->
   <section class="cards">
     <div class="card">
-      <h3>Fácil Cadastro</h3>
-      <p>Cadastro rápido e simples para qualquer usuário.</p>
-      <button class="irCadastro" onclick="window.location.href = '/cadastro';">Cadastrar</button>
+        <h3>Cadastro Simplificado</h3>
+        <p>Nosso processo de cadastro é rápido, intuitivo e descomplicado, permitindo que você comece a usar o sistema em minutos.</p>
+        <button class="irCadastro" onclick="window.location.href = '/cadastro';">Comece Agora</button>
     </div>
     <div class="card">
-      <h3>Segurança</h3>
-      <p>O sistema possui um alto nível de segurança para proteção de dados.</p>
-      <button class="verDocumetacao">Ver documentação</button>
+        <h3>Segurança de Alta Qualidade</h3>
+        <p>Com tecnologia de ponta, garantimos a proteção e privacidade dos seus dados. A segurança é nossa prioridade.</p>
+        <button class="verDocumentacao" onclick="window.location.href = 'https://github.com/Derickcsantos/Sistema-de-cadastro'">Ver Documentação</button>
     </div>
     <div class="card">
-      <h3>Visão geral</h3>
-      <p>Visão geral de todos os dados registrados de forma dinâmica ou profissional, com emissão de documentos e criação de planilhas.</p>
-      <button class="irLogin">Acessar painel</button>
+        <h3>Visão Completa dos Dados</h3>
+        <p>Tenha acesso a relatórios dinâmicos e detalhados, com ferramentas para gerar documentos e exportar dados em planilhas profissionais.</p>
+        <button class="irLogin">Acessar o Painel</button>
     </div>
   </section>
+
 
   <!-- Sobre o Sistema -->
   <section class="about" id="sobre">
     <div class="sobre-content">
       <div class="sobre-marketing">
-        <img src="./img/image.png" alt="">
+        <img draggable="true" src="./img/image.png" alt="">
       </div>
       <div class="sobre-text">
         <h2>Sobre o Sistema</h2>
@@ -94,7 +95,7 @@
   <div id="vlibras-container"></div>
 
   <!-- Scroll Up Button -->
-  <button id="scrollUpBtn" onclick="scrollUp()">↑</button>
+  <button  id="scrollUpBtn" onclick="scrollUp()">↑</button>
 
   <!-- Footer -->
   <footer>

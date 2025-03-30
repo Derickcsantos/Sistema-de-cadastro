@@ -5,15 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro de usuário</title>
   <link rel="stylesheet" href="./css/cadastro.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <header class="navbar">
     <div class="logo">
-      <a href="home"><img class="logoImg" src="./img/Logo DCS.png" alt="Logo"></a>
+      <a onclick="window.location.href = '/';" ><img class="logoImg" src="./img/Logo DCS.png" alt="Logo"></a>
     </div>
     <nav class="menu">
       <ul>
-        <li><a href="#home">Início</a></li>
+        <li><a onclick="window.location.href = '/';">Início</a></li>
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#contato">Contato</a></li>
         <li><a onclick="window.location.href = '/cadastro';">Cadastro</a></li>
@@ -25,6 +26,8 @@
   </header>
 
   <main>
+    <div class="overlay"></div>
+
     <div class="formulario-container">
       <h1>Cadastro</h1>
       <form id="cadastro-form">
@@ -45,6 +48,7 @@
   
         <label for="sexo">Sexo:</label>
         <select id="sexo" name="sexo" required>
+          <option value="select">Selecione</option>
           <option value="Masculino">Masculino</option>
           <option value="Feminino">Feminino</option>
         </select>
@@ -52,12 +56,22 @@
         <button type="submit">Salvar</button>
       </form>
     </div>
+
+    <div class="modal-sucess">
+      <h2>Cadastro efetuado com sucesso!</h2>
+      <i class="fa-solid fa-check"></i>
+    </div>
+
+    <div  class="modal-error">
+      <h2>Erro ao cadastrar o convidado. Tente novamente.</h2>
+      <i class="fa-solid fa-x"></i>
+    </div>
   </main>
 
   <footer>
-    <button onclick="window.history.back()">Voltar</button>
+    <p>&copy; Desenvolvido por <a class="marketing" href="https://www.linkedin.com/in/derick-campos-santos/">Dérick Campos Santos</a></p>
   </footer>
 
-  <script src="./js/script.js"></script>
+  <script src="./js/cadastro.js"></script>
 </body>
 </html>

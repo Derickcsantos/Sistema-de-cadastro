@@ -1,253 +1,266 @@
 /* Reset de Estilos */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
-    font-family: 'poppins', sans-serif;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Menu */
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #360304;
-    padding: 15px;
-    cursor: pointer;
-  }
-  
-  .navbar .logo a {
-    color: white;
-    text-decoration: none;
-    font-size: 24px;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: 'Poppins', sans-serif;
+}
 
-  .logoImg{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-  }
-  
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Menu */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #360304;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.navbar .logo a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.logoImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.navbar .menu ul {
+  display: flex;
+  list-style: none;
+}
+
+.navbar .menu ul li {
+  margin-left: 20px;
+}
+
+.navbar .menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.menu-mobile {
+  display: none;
+  cursor: pointer;
+  font-size: 30px;
+  color: white;
+}
+
+@media (max-width: 768px) {
   .navbar .menu ul {
-    display: flex;
-    list-style: none;
-  }
-  
-  .navbar .menu ul li {
-    margin-left: 20px;
-  }
-  
-  .navbar .menu ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-  }
-  
-  .menu-mobile {
     display: none;
-    cursor: pointer;
-    font-size: 30px;
-    color: white;
-  }
-  
-  @media (max-width: 768px) {
-    .navbar .menu ul {
-      display: none;
-    }
-  
-    .menu-mobile {
-      display: block;
-    }
-  }
-  
-  /* Carrossel */
-  .carousel {
-    width: 100%;
-    overflow: hidden;
-  }
-  
-  .carousel-slide {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-  }
-  
-  .carousel-slide img {
-    width: 100%;
-    height: 800px;
-  }
-  
-  /* Sobre o Sistema */
-  .about {
-    text-align: center;
-    padding: 50px;
-    background-color: #f4f4f4;
-    height: 500px;
-  }
-  
-  .about h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    color: #360304;
-  }
-  
-  .about p {
-    font-size: 18px;
-    color: #000;
   }
 
-  .sobre-content{
-    display: flex;
-    flex-direction: row-reverse;
-    height: auto;
+  .menu-mobile {
+    display: block;
+  }
+}
+
+/* Carrossel */
+.carousel {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+}
+
+/* Sobre o Sistema */
+.about {
+  text-align: center;
+  padding: 50px;
+  background-color: #f4f4f4;
+}
+
+.about h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #360304;
+  text-align: center;
+}
+
+.about p {
+  font-size: 18px;
+  color: #000;
+}
+
+.sobre-content {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.links{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color:#360304;
+  gap: 20px;
+  margin: 20px 0 20px 0;
+}
+
+.sobre-marketing,
+.sobre-text {
+  width: 50%;
+  padding: 20px;
+}
+
+.sobre-text {
+  text-align: justify;
+}
+
+.sobre-marketing img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .sobre-content {
+    flex-direction: column;
   }
 
   .sobre-marketing,
-  .sobre-text{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .sobre-text {
+    width: 100%;
   }
+}
 
-  .sobre-text{
-    text-align: justify;
-    padding: 30px;
-  }
+/* Cards */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 50px;
+}
 
-  .sobre-text p{
-    font-size: 1.4rem;
-    color: #000000de;
-    letter-spacing: 1px;
-  }
+.card {
+  background-color: #fff;
+  padding: 20px;
+  width: 30%;
+  min-width: 280px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-  .sobre-marketing img{
-    width: 80%;
-    height: auto;
-    border-radius: 50%;
-  }
+.card button {
+  background-color: #360304;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+}
 
-  .sobre-text .links{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-  }
+.card p{
+  padding: 20px;
+}
 
-  .links i{
-    font-size: 40px;
-    color: #360304;
-    margin: 5px;
-    padding: 20px;
-  }
-  
-  /* Cards */
+@media (max-width: 768px) {
   .cards {
-    display: flex;
-    justify-content: space-around;
-    padding: 50px;
-  }
-  
-  .card {
-    background-color: #fff;
-    padding: 20px;
-    width: 25%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .card h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #360304;
-  }
-  
-  .card p {
-    font-size: 16px;
-    color: #555;
-  }
-  
-  /* Contato */
-  .contact {
-    padding: 50px;
-    background-color: #f4f4f4;
-    display: flex;
     flex-direction: column;
     align-items: center;
   }
-  
-  .contact h2 {
-    text-align: center;
-    font-size: 36px;
-    margin-bottom: 20px;
-  }
-  
-  .contact form {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #360304;
-    border-radius: 10px;
-    padding: 20px;
-    max-width: 800px;
-    width: 100%;
-  }
-  
-  .contact label {
-    font-size: 18px;
-    margin: 10px 0;
-  }
-  
-  .contact input, .contact textarea {
-    padding: 10px;
-    width: 100%;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    background-color: #f4f4f4;
-  }
 
-  .contact button {
-    padding: 10px 20px;
-    background-color: #360304;
-    color: white;
-    border: 1px solid #fff;
-    cursor: pointer;
+  .card{
+    width: 90%;
   }
+}
 
-  .contact button:hover{
-    background-color: #400405;
-  }
-  
-  /* Scroll Up */
-  #scrollUpBtn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #333;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    font-size: 20px;
-    cursor: pointer;
-    display: none;
-  }
-  
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #360304;
-    color: white;
-  }
+/* Contato */
+.contact {
+  padding: 50px;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .marketing{
-    color: #ffff;
-    text-decoration: underline;
-  }
-  
-  
+.contact h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 600px;
+  width: 100%;
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact input,
+.contact textarea {
+  padding: 10px;
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+.contact button {
+  padding: 10px;
+  background-color: #360304;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Scroll Up */
+#scrollUpBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #360304;
+  color: white;
+}
+
+footer a{
+  color: #fff;
+  text-decoration: underline;
+}

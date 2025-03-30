@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const guestBox = document.createElement('div');
           guestBox.className = 'guest-box'; // Adiciona a classe para cada convidado
           guestBox.innerHTML = `
-            <div>
+            <div class="info-user">
               <span><strong>${index + 1}:</strong></span>
               <span><strong>Nome:</strong> ${guest.name}</span>
               <span><strong>Idade:</strong> ${guest.age}</span>
@@ -41,11 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
               <span><strong>Endereço:</strong> ${guest.endereco || 'N/A'}</span> <!-- Exibe endereço (se houver) -->
             </div>
             <div class="icons">
-              <i class="fas fa-edit edit" data-id="${guest._id}"></i> <!-- Ícone para editar -->
-              <i class="fas fa-trash delete" data-id="${guest._id}"></i> <!-- Ícone para excluir -->
+              <button class="edit" data-id="${guest._id}">Editar</button> <!-- Botão para editar -->
+              <button class="delete" data-id="${guest._id}">Excluir</button> <!-- Botão para excluir -->
             </div>
           `;
-          guestList.appendChild(guestBox); // Adiciona o convidado à lista
+          guestList.appendChild(guestBox);// Adiciona o convidado à lista
 
           // Evento para deletar o convidado
           guestBox.querySelector('.delete').addEventListener('click', async (e) => {
@@ -96,10 +96,10 @@ document.addEventListener('DOMContentLoaded', () => {
         new Chart(document.getElementById('totalGuestsChart'), {
           type: 'pie',
           data: {
-            labels: ['Convidados'],
+            labels: ['Quantidade de usuários'],
             datasets: [{
               data: [totalGuests],
-              backgroundColor: ['#36a2eb'],
+              backgroundColor: ['#661b04'],
             }]
           },
           options: { responsive: true }
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
             labels: ['Maiores de 18', 'Menores de 18'],
             datasets: [{
               data: [adults, minors],
-              backgroundColor: ['#36a2eb', '#ff6384'],
+              backgroundColor: ['#e5d29c', '#661b04'],
             }]
           },
           options: { responsive: true }
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
             labels: ['Masculino', 'Feminino'],
             datasets: [{
               data: [maleGuests || 0, femaleGuests || 0], // Caso não tenha dados, define como 0
-              backgroundColor: ['#ff6384', '#36a2eb'],
+              backgroundColor: ['#661b04', '#e5d29c'],
             }]
           },
           options: { responsive: true }
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
             datasets: [{
               label: 'Usuários Cadastrados',
               data: monthlyData.data,
-              backgroundColor: '#36a2eb',
+              backgroundColor: '#661b04',
             }]
           },
           options: { responsive: true }
@@ -322,73 +322,9 @@ document.addEventListener('DOMContentLoaded', () => {
   generateCharts(); // Gera os gráficos
 });
 
-document.getElementById('cadastro-form').addEventListener('submit', async (e) => {
-  e.preventDefault();
-
-  const name = document.getElementById('name').value;
-  const age = document.getElementById('age').value;
-  const telefone = document.getElementById('telefone').value;
-  const email = document.getElementById('email').value;
-  const endereco = document.getElementById('endereco').value;
-  const sexo = document.getElementById('sexo').value;
-
-  const guestData = { name, age, telefone, email, endereco, sexo };
-
-  try {
-    const response = await fetch('/guests', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(guestData),
-    });
-
-    if (response.ok) {
-      alert('Convidado cadastrado com sucesso!');
-      window.location.href = '/'; // Redireciona para a página principal após o cadastro
-    } else {
-      alert('Erro ao cadastrar o convidado. Tente novamente.');
-    }
-  } catch (error) {
-    console.error('Erro ao enviar os dados:', error);
-    alert('Erro ao cadastrar convidado. Verifique a conexão.');
+  // Função para alternar o menu mobile
+  function toggleMenu() {
+    const menu = document.querySelector('.navbar .menu ul');
+    menu.classList.toggle('show');
   }
-});
-
-// Função para alternar o menu mobile
-function toggleMenu() {
-  const menu = document.querySelector('.navbar .menu ul');
-  menu.classList.toggle('show');
-}
-
-// Função para rolar até o topo
-function scrollUp() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-// Exibir o botão de scroll up ao rolar a página
-window.onscroll = function() {
-  const scrollUpBtn = document.getElementById('scrollUpBtn');
-  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-    scrollUpBtn.style.display = 'block';
-  } else {
-    scrollUpBtn.style.display = 'none';
-  }
-};
-
-document.addEventListener('DOMContentLoaded', () => {
-  // Carrossel automático
-  let index = 0;
-  const slides = document.querySelectorAll('.carousel-slide img');
-
-  function nextSlide() {
-    index = (index + 1) % slides.length;
-    document.querySelector('.carousel-slide').style.transform = `translateX(-${index * 100}%)`;
-  }
-
-  setInterval(nextSlide, 3000);
-});
-
-// Inicializar VLibras
-new window.VLibras.Widget('vlibras-container');
-
+  

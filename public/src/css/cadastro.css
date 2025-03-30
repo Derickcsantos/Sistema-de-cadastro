@@ -7,6 +7,20 @@ box-sizing: border-box;
 font-family: 'poppins', sans-serif;
 }
 
+body{
+    background-color: #f4f4f4;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(219, 219, 219, 0.5); /* Cor preta com opacidade */
+    display: none; /* Inicialmente oculto */
+    z-index: 9998; /* Abaixo do modal */
+}
 
 .navbar {
 display: flex;
@@ -73,12 +87,14 @@ h1{
     transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
-    border: 1px solid #360304;
+    border: 1px solid #ccc;
     max-width: 800px;
     width: 100%;
     padding: 20px;
     border-radius: 10px;
-    margin: 10px;
+    margin-top: 30px;
+    background-color: #fff;
+    box-shadow: 2px 2px 2px 2px #ccc;
 }
 
 #cadastro-form input, 
@@ -88,3 +104,89 @@ h1{
     border: 1px solid #ccc;
     margin: 10px;
 }
+
+#cadastro-form option{
+    color: #360304;
+    background-color: #fff;
+}
+
+#cadastro-form option:hover{
+    background-color: #360304;
+    color: #fff;
+}
+
+#cadastro-form button{
+    background-color: #360304;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.modal-sucess,
+.modal-error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    border-radius: 15px;
+    padding: 20px;
+    display: none; /* Ocultar o modal inicialmente */
+    z-index: 9999; /* Garantir que o modal fique sobre outros conteúdos */
+}
+
+.modal-sucess,
+.modal-error{
+    color: #000000bd;
+}
+
+.modal-sucess{
+    box-shadow: 2px 2px 2px #12c75d;
+}
+
+.modal-error{
+    box-shadow: 2px 2px 2px #ff0000;
+}
+
+.modal-error i,
+.modal-sucess i{
+    font-size: 50px;
+    padding: 20px;
+    margin: 10px 0 0 0;
+    border-radius: 50%;
+}
+
+.modal-sucess i{
+    color: #12c75d;
+    border: 1px solid #12c75d;
+}
+
+.modal-error i{
+    color: #ff0000;
+    border: 1px solid #ff0000;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #360304;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.marketing{
+    color: #ffff;
+    text-decoration: underline;
+  }
+  
+  

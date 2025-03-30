@@ -2,26 +2,163 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'poppins', sans-serif;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #fff;
+  background-color: #f8f9fa;
+  color: #333;
 }
 
-nav {
-  background-color: #ccc;
-  padding: 1rem;
-  text-align: center;
+.container {
+  width: 90%;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-nav h1 {
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-direction: row-reverse;
+}
+
+.btn {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #6c757d;
   color: white;
-  font-size: 2rem;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #5a6268;
+}
+
+.btn.primary {
+  background-color: #007bff;
+}
+
+.btn.primary:hover {
+  background-color: #0056b3;
+}
+
+.input-field {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.guest-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.guest-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap; /* Permite que os elementos se ajustem em telas menores */
+}
+
+.guest-details {
+  flex-grow: 1;
+}
+
+.icons {
+  display: flex;
+  gap: 10px;
+}
+
+.edit, .delete {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #e9ecef;
+  transition: background-color 0.3s ease;
+}
+
+.edit:hover, .delete:hover {
+  background-color: #ced4da;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #360304;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.navbar .logo a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.logoImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.navbar .menu ul {
+  display: flex;
+  list-style: none;
+}
+
+.navbar .menu ul li {
+  margin-left: 20px;
+}
+
+.navbar .menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.menu-mobile {
+  display: none;
+  cursor: pointer;
+  font-size: 30px;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .navbar .menu ul {
+    display: none;
+  }
+
+  .menu-mobile {
+    display: block;
+  }
 }
 
 main {
   margin: 20px;
+}
+
+#search-bar {
+  width: 50%;
+  border-radius: 15px;
+  padding: 15px;
+  border: 1px solid #ccc;
 }
 
 #guest-list .guest-box {
@@ -56,7 +193,6 @@ main {
   gap: 10px;
 }
 
-
 .guest-box i {
   cursor: pointer;
   padding: 5px;
@@ -68,48 +204,44 @@ main {
   background-color: #777272;
 }
 
-
-.guest-box .edit button, .guest-box .delete button {
+.guest-box .edit button,
+.guest-box .delete button {
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.guest-box .edit button:hover, .guest-box .delete button:hover {
+.guest-box .edit button:hover,
+.guest-box .delete button:hover {
   background-color: #777272;
 }
 
-
 footer {
-  position: fixed;
+  position: relative; /* Usa position relative para garantir que o footer fique no final da página */
   bottom: 0;
+  left: 0;
   width: 100%;
-  background-color: #fff;
+  background-color: #360304;
+  color: #fff;
   padding: 10px;
   display: flex;
   justify-content: space-around;
   border-top: 1px solid #ccc;
 }
 
-footer input {
-  width: 70%;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
+footer a{
+  color: #fff;
 }
 
-footer button {
-  padding: 12px;
-  background-color: #cfcfcf;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
+
+/* Garantir que o footer fique no final da página, mesmo que o conteúdo não ocupe toda a altura da tela */
+body, html {
+  height: 100%;
 }
 
-footer button:hover {
-  background-color: #777272;
+main {
+  min-height: calc(100vh - 60px); /* Garante que o conteúdo ocupe a altura da tela, deixando o footer no final */
 }
 
 .modal {
@@ -136,12 +268,15 @@ footer button:hover {
   flex-direction: column; /* Organiza os campos verticalmente */
   gap: 20px;
 }
-.edit, .delete{
+
+.edit,
+.delete {
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-.save{
+
+.save {
   border-radius: 10px;
   border: 1px solid #ccc;
   padding: 10px;
@@ -151,7 +286,7 @@ footer button:hover {
   color: #fff;
 }
 
-.save:hover{
+.save:hover {
   background-color: #777272;
 }
 
@@ -160,16 +295,49 @@ footer button:hover {
   float: right;
   font-size: 30px;
   cursor: pointer;
-  
 }
 
 #charts-section {
-  text-align: center;
+  text-align: center; /* Centraliza o título h2 */
+  display: grid; /* Usando grid para os gráficos */
+  grid-template-columns: repeat(2, 1fr); /* 2 colunas de tamanho igual */
+  gap: 20px; /* Espaçamento entre os gráficos */
+  width: 100%;
+  margin-top: 20px; /* Adiciona margem superior */
 }
 
-canvas {
-  max-width: 80%;
-  margin: 20px auto;
+h2 {
+  grid-column: span 2; /* Faz o título ocupar as duas colunas */
+  margin-bottom: 20px; /* Adiciona espaço abaixo do título */
+}
+
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: 250px; /* Altura padronizada para todos os gráficos */
+  max-width: 600px;
+  margin: 0 auto; /* Centraliza os gráficos dentro da célula do grid */
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.445);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chart {
+  width: 100%;
+  height: 100%; /* Garante que o gráfico ocupe toda a altura do contêiner */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  #charts-section {
+    grid-template-columns: 1fr; /* Coloca os gráficos em uma coluna em telas pequenas */
+  }
+
+  .chart-container {
+    height: 200px; /* Ajusta a altura dos gráficos em dispositivos móveis */
+  }
 }
 
 button {
@@ -183,5 +351,151 @@ button {
 }
 
 #backToChartsBtn {
-  margin-bottom: 20px;
+  display: none;
+}
+
+#guests-section{
+  display: none;
+}
+
+@media (max-width: 855px) {
+  #charts-section {
+    display: flex;
+    flex-direction: column; /* Muda para coluna */
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  #search-bar {
+    width: 100%;
+    border-radius: 15px;
+    padding: 15px;
+    border: 1px solid #ccc;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .botoes-tool{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 430px) {
+  #guest-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .guest-box {
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    align-items: flex-start;
+    padding: 15px;
+    position: relative;
+  }
+
+  .icons {
+    display: flex;
+    flex-direction: row; /* Mantém os ícones na mesma linha */
+    gap: 10px; /* Espaço entre os ícones */
+    justify-content: space-around; /* Alinha os ícones à direita */
+    width: 100%; /* Garante que os ícones não fiquem empilhados */
+    margin-top: 10px;
+  }
+
+  .icons i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: #e9ecef;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .icons i:hover {
+    background-color: #ced4da;
+  }
+}
+
+.guest-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap; /* Permite que os elementos se ajustem em telas menores */
+}
+
+.guest-details {
+  flex-grow: 1;
+}
+
+.icons {
+  display: flex;
+  gap: 10px;
+}
+
+.edit, .delete {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #e9ecef;
+  transition: background-color 0.3s ease;
+}
+
+.edit:hover, .delete:hover {
+  background-color: #ced4da;
+}
+
+/* Em telas pequenas, os botões devem aparecer abaixo dos dados do usuário */
+@media (max-width: 768px) {
+  .guest-box {
+    flex-direction: column; /* Alinha os itens em coluna */
+    align-items: flex-start; /* Alinha à esquerda */
+  }
+
+  .icons {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column; /* Organiza os botões verticalmente */
+    gap: 5px; /* Espaço entre os botões */
+    width: 100%;
+  }
+
+  .icons button {
+    width: 100%; /* Botões ocupam toda a largura disponível */
+    text-align: center; /* Centraliza o texto dentro dos botões */
+  }
+}
+
+/* Em telas maiores, os botões devem aparecer ao lado dos dados do usuário */
+@media (min-width: 769px) {
+  .guest-box {
+    flex-direction: row; /* Organiza os dados e botões lado a lado */
+    align-items: center;
+  }
+
+  .icons {
+    display: flex;
+    gap: 10px;
+    flex-direction: row; /* Coloca os botões lado a lado */
+  }
+
+  .icons button {
+    width: auto; /* Mantém o tamanho normal dos botões */
+  }
 }
