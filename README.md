@@ -48,23 +48,13 @@ Ou utilize a versão online disponível [Clicando aqui](https://sistemadecadastr
 
 ## 🛠️ Tecnologias Utilizadas
 
-### **Frontend:**
-- HTML
-- CSS
-- JavaScript
+| Frontend   |  Backend    | Banco de Dados   | Outros                      |
+|:-----------|:------------|:-----------------|-----------------------------|
+| HTML       | Node.js     | MongoDB          | Chart.js (Gráficos)         |
+| CSS        | Express.js  |                  | Font Awesome (Ícones)       |
+| JavaScript |             |                  | PDFKit (Geração de PDF)     |
+|            |             |                  | CSV-Parser (Exportação CSV) |
 
-### **Backend:**
-- Node.js
-- Express.js
-
-### **Banco de Dados:**
-- MongoDB
-
-### **Outras Tecnologias:**
-- Chart.js (Gráficos)
-- Font awesome (icones
-- PDFKit (Geração de PDF)
-- CSV-Parser (Exportação CSV)
 
 ## 📜 Licença
 
