@@ -1,6 +1,9 @@
-const path = require('path'); // Importa o módulo 'path' para manipulação de caminhos de arquivos 
+const path = require('path'); // Importa o módulo 'path' para manipulação de caminhos de arquivos
 const express = require('express'); // Importa o módulo 'express' para criar o servidor
 const Guest = require('./models/guest'); // Importa o modelo 'Guest' para gerenciar convidados
+const User = require('./models/User'); // Modelo de Usuário
+const session = require('express-session');
+const bcrypt = require('bcryptjs');
 const app = express(); // Cria uma instância do aplicativo Express
 const mongoose = require('mongoose'); // Importa o módulo 'mongoose' para interagir com o MongoDB
 require('dotenv').config(); // Carrega as variáveis de ambiente
@@ -25,6 +28,17 @@ mongoose.connect(mongoURI, {
 
 app.use(express.json()); // Middleware para analisar requisições JSON
 app.use(express.static(path.join(__dirname, 'public', 'src'))); // Serve arquivos estáticos do diretório 'public/src'
+app.use(session({
+  secret: 'seu-segredo-aqui',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false } // Usar `true` em produção com HTTPS
+}));
+
+const users = [
+  { username: 'derick@gmail.com', password: '123' },
+  { username: 'derickcampossantos1@gmail.com', password: '1234' }
+];
 
 // Rota para obter todos os convidados
 app.get('/guests', async (req, res) => {
@@ -37,12 +51,45 @@ app.get('/guests', async (req, res) => {
   }
 });
 
-app.get('/admin', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'src', 'admin.html')); // Atualizando o caminho para 'src/admin.html'
+const authenticate = (req, res, next) => {
+  if (!req.session.userId) {
+    return res.status(401).json({ error: 'Acesso negado. Não autenticado!' });
+  }
+  next(); // Se o usuário estiver autenticado, continua a execução
+};
+
+
+app.get('/admin', authenticate, (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'src', 'admin.html')); 
 });
+
 
 app.get('/cadastro', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'src', 'cadastro.html')); // Atualizando o caminho para 'src/cadastro.html'
+});
+
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'src', 'login.html')); // Atualizando o caminho para 'src/cadastro.html'
+});
+
+app.post('/login', (req, res) => {
+  const { username, password } = req.body;
+
+  // Encontrando o usuário no array
+  const user = users.find(u => u.username === username);
+
+  if (!user) {
+    return res.status(400).json({ error: 'Usuário ou senha inválidos!' });
+  }
+
+  // Comparando a senha diretamente
+  if (password !== user.password) {
+    return res.status(400).json({ error: 'Usuário ou senha inválidos!' });
+  }
+
+  // Criação da sessão
+  req.session.userId = username; // Armazena o username na sessão
+  res.json({ message: 'Login realizado com sucesso!' });
 });
 
 // Rota para obter estatísticas dos convidados (total e divisão por idade)
@@ -52,7 +99,6 @@ app.get('/guest-stats', async (req, res) => {
     const totalGuests = await Guest.countDocuments();
     const maleGuests = await Guest.countDocuments({ sexo: 'Masculino' });
     const femaleGuests = await Guest.countDocuments({ sexo: 'Feminino' });
-
 
     // Filtrando para obter maiores e menores de 18 anos
     const adults = await Guest.countDocuments({ age: { $gte: 18 } });
@@ -79,7 +125,6 @@ app.get('/guest-stats', async (req, res) => {
     res.status(500).send('Erro ao obter estatísticas');
   }
 });
-
 
 app.post('/guests', async (req, res) => {
   const { name, age, telefone, email, endereco, sexo } = req.body;
@@ -118,7 +163,6 @@ app.put('/guests/:id', async (req, res) => {
     res.status(500).json({ error: 'Erro ao atualizar convidado' });
   }
 });
-
 
 // Rota para deletar um convidado
 app.delete('/guests/:id', async (req, res) => {
