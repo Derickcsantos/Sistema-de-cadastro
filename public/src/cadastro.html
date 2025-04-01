@@ -20,7 +20,7 @@
         <li><a onclick="window.location.href = '/cadastro';">Cadastro</a></li>
       </ul>
       <div class="menu-mobile" onclick="toggleMenu()">
-        <span>&#9776;</span>
+        <i class="fa-solid fa-bars"></i>
       </div>
     </nav>
   </header>
@@ -32,19 +32,19 @@
       <h1>Cadastro</h1>
       <form id="cadastro-form">
         <label for="name">Nome:</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" placeholder="Digite o nome" required>
   
         <label for="age">Idade:</label>
-        <input type="number" id="age" name="age" required>
+        <input type="number" id="age" name="age" placeholder="informe sua idade"  required>
   
         <label for="telefone">Telefone:</label>
-        <input type="tel" id="telefone" name="telefone">
+        <input type="tel" id="telefone" name="telefone" inputmode="numeric" pattern="[0-9]*" placeholder="(xx) xxxxx-xxxx" required>
   
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email">
+        <label for="email">E-mail: (opcional)</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu email">
   
-        <label for="endereco">Endereço:</label>
-        <input type="text" id="endereco" name="endereco">
+        <label for="endereco">Endereço: (opcional)</label>
+        <input type="text" id="endereco" name="endereco" placeholder="Digite seu endereço">
   
         <label for="sexo">Sexo:</label>
         <select id="sexo" name="sexo" required>
@@ -73,5 +73,40 @@
   </footer>
 
   <script src="./js/cadastro.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Função para alternar o menu mobile
+      function toggleMenu() {
+        const menu = document.querySelector('.navbar .menu ul');
+        if (menu) {
+          menu.classList.toggle('show');
+        } else {
+          console.error('Menu não encontrado!');
+        }
+      }
+    
+      const menuMobile = document.querySelector('.menu-mobile');
+      const menu = document.querySelector('.navbar .menu ul');
+    
+      if (menuMobile && menu) {
+        menuMobile.addEventListener('click', (event) => {
+          event.stopPropagation(); // Impede o clique fora de fechar o menu
+          toggleMenu();
+        });
+      } else {
+        console.error('Elemento menu ou menu-mobile não encontrado!');
+      }
+    
+      document.addEventListener('click', (event) => {
+        const menu = document.querySelector('.navbar .menu ul');
+        const menuMobile = document.querySelector('.menu-mobile');
+        
+        // Fecha o menu quando clicar fora dele
+        if (menu && !menu.contains(event.target) && !menuMobile.contains(event.target)) {
+          menu.classList.remove('show');
+        }
+      });
+    });
+    </script>
 </body>
 </html>

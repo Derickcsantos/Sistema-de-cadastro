@@ -1,16 +1,18 @@
-*{
-margin: 0;
-padding: 0;
-text-decoration: none;
-list-style: none;
-box-sizing: border-box;
-font-family: 'poppins', sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-body{
+body {
     background-color: #f4f4f4;
+    overflow-x: hidden;
 }
 
+/* Overlay */
 .overlay {
     position: fixed;
     top: 0;
@@ -22,112 +24,129 @@ body{
     z-index: 9998; /* Abaixo do modal */
 }
 
+/* Menu */
 .navbar {
-display: flex;
-justify-content: space-between;
-align-items: center;
-background-color: #360304;
-padding: 15px;
-cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #360304;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 10000; /* Garante que o menu fique acima do conteúdo */
+    position: relative;
 }
 
 .navbar .logo a {
-color: white;
-text-decoration: none;
-font-size: 24px;
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
 }
 
-.logoImg{
-width: 50px;
-height: 50px;
-border-radius: 50%;
+.logoImg {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
 
 .navbar .menu ul {
-display: flex;
-list-style: none;
+    display: flex;
+    list-style: none;
 }
 
 .navbar .menu ul li {
-margin-left: 20px;
+    margin-left: 20px;
 }
 
 .navbar .menu ul li a {
-color: white;
-text-decoration: none;
-font-size: 18px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
 }
 
 .menu-mobile {
-display: none;
-cursor: pointer;
-font-size: 30px;
-color: white;
-}
-
-@media (max-width: 768px) {
-.navbar .menu ul {
     display: none;
+    cursor: pointer;
+    font-size: 30px;
+    color: white;
 }
 
-.menu-mobile {
-    display: block;
-}
+/* Estilo para o menu no mobile */
+@media (max-width: 768px) {
+    .navbar .menu ul {
+        display: none; /* Esconde o menu no mobile */
+        flex-direction: column; /* Coloca os itens em coluna */
+        align-items: center;
+        width: 100%;
+        background-color: #360304;
+        position: absolute;
+        top: 70px; /* Ajusta conforme necessário */
+        left: 0;
+        padding: 10px 0;
+    }
+
+    .navbar .menu ul.show {
+        display: flex; /* Exibe o menu quando 'show' é adicionado */
+    }
+
+    .menu-mobile {
+        display: block;
+    }
 }
 
-h1{
+/* Formulário de cadastro */
+h1 {
     text-align: center;
     margin: 20px;
 }
 
-#cadastro-form{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #ccc;
+#cadastro-form {
+    position: relative;
     max-width: 800px;
-    width: 100%;
+    width: 90%; /* Garante que o formulário tenha espaço nas laterais */
     padding: 20px;
     border-radius: 10px;
     margin-top: 30px;
     background-color: #fff;
     box-shadow: 2px 2px 2px 2px #ccc;
+    margin-left: auto;
+    margin-right: auto; /* Centraliza o formulário */
+    box-sizing: border-box;
 }
 
+/* Inputs e selects dentro do formulário */
 #cadastro-form input, 
-#cadastro-form select{
+#cadastro-form select {
     padding: 10px;
     border-radius: 15px;
     border: 1px solid #ccc;
     margin: 10px;
+    width: 100%; /* Garante que os inputs e selects ocupem toda a largura disponível */
 }
 
-#cadastro-form option{
+/* Opções de select */
+#cadastro-form option {
     color: #360304;
     background-color: #fff;
 }
 
-#cadastro-form option:hover{
+#cadastro-form option:hover {
     background-color: #360304;
     color: #fff;
 }
 
-#cadastro-form button{
+#cadastro-form button {
     background-color: #360304;
     color: white;
     border: none;
     cursor: pointer;
     font-size: 16px;
-    height: auto;
     padding: 10px;
     border-radius: 5px;
+    width: 100%; /* Botão ocupará toda a largura do formulário */
 }
 
-.modal-sucess,
-.modal-error {
+/* Modais de sucesso e erro */
+.modal-sucess, .modal-error {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -144,36 +163,37 @@ h1{
 }
 
 .modal-sucess,
-.modal-error{
+.modal-error {
     color: #000000bd;
 }
 
-.modal-sucess{
+.modal-sucess {
     box-shadow: 2px 2px 2px #12c75d;
 }
 
-.modal-error{
+.modal-error {
     box-shadow: 2px 2px 2px #ff0000;
 }
 
 .modal-error i,
-.modal-sucess i{
+.modal-sucess i {
     font-size: 50px;
     padding: 20px;
     margin: 10px 0 0 0;
     border-radius: 50%;
 }
 
-.modal-sucess i{
+.modal-sucess i {
     color: #12c75d;
     border: 1px solid #12c75d;
 }
 
-.modal-error i{
+.modal-error i {
     color: #ff0000;
     border: 1px solid #ff0000;
 }
 
+/* Footer */
 footer {
     text-align: center;
     padding: 10px;
@@ -184,9 +204,7 @@ footer {
     width: 100%;
 }
 
-.marketing{
+.marketing {
     color: #ffff;
     text-decoration: underline;
-  }
-  
-  
+}

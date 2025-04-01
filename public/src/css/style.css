@@ -97,6 +97,7 @@ body {
   background-color: #ced4da;
 }
 
+/* Menu */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -140,16 +141,28 @@ body {
   color: white;
 }
 
+/* Estilo para o menu no mobile */
 @media (max-width: 768px) {
   .navbar .menu ul {
-    display: none;
+    display: none; /* Esconde o menu no mobile */
+    flex-direction: column; /* Coloca os itens em coluna */
+    align-items: center;
+    width: 100%;
+    background-color: #360304;
+    position: absolute;
+    top: 70px; /* Ajusta conforme necessário */
+    left: 0;
+    padding: 10px 0;
+  }
+
+  .navbar .menu ul.show {
+    display: flex; /* Exibe o menu quando 'show' é adicionado */
   }
 
   .menu-mobile {
     display: block;
   }
 }
-
 main {
   margin: 20px;
 }

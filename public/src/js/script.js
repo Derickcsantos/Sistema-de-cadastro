@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
         new Chart(document.getElementById('monthlyStatsChart'), {
           type: 'bar',
           data: {
-            labels: monthlyData.labels,
+            labels: ['2025'],
             datasets: [{
               label: 'Usuários Cadastrados',
               data: monthlyData.data,
@@ -317,14 +317,44 @@ document.addEventListener('DOMContentLoaded', () => {
     gerarPDF(guests); // Passa a lista de convidados para gerar o PDF
   });
 
+  // Função para alternar o menu mobile
+  document.addEventListener('DOMContentLoaded', () => {
+    // Coloque aqui o código JavaScript para adicionar os event listeners
+    const menuMobile = document.querySelector('.menu-mobile');
+    const menu = document.querySelector('.navbar .menu ul');
+  
+    if (menuMobile && menu) {
+      menuMobile.addEventListener('click', (event) => {
+        event.stopPropagation();
+        toggleMenu();
+      });
+    } else {
+      console.error('Elemento menu ou menu-mobile não encontrado!');
+    }
+  
+    document.addEventListener('click', (event) => {
+      const menu = document.querySelector('.navbar .menu ul');
+      const menuMobile = document.querySelector('.menu-mobile');
+      
+      if (menu && !menu.contains(event.target) && !menuMobile.contains(event.target)) {
+        menu.classList.remove('show');
+      }
+    });
+  });
+
+  
+  // Função para alternar o menu mobile
+function toggleMenu() {
+  const menu = document.querySelector('.navbar .menu ul');
+  if (menu) {
+    menu.classList.toggle('show');
+  } else {
+    console.error('Menu não encontrado!');
+  }
+}
+
 
   loadGuests(); // Carrega os convidados ao carregar a página
   generateCharts(); // Gera os gráficos
 });
 
-  // Função para alternar o menu mobile
-  function toggleMenu() {
-    const menu = document.querySelector('.navbar .menu ul');
-    menu.classList.toggle('show');
-  }
-  

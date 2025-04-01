@@ -1,9 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Landing Page - Sistema de Cadastro</title>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index,follow">	
+    <meta name="description" content="Sistema de cadastro - DCS é um sistema de cadastro online, gratuito e fácil de usar. Ele permite o registro e a visualização de dados de forma rápida e segura. O sistema é acessível a partir de qualquer dispositivo com conexão à internet, tornando-o prático e flexível.">
+    <meta name="keyword" content="Sistema de cadastro, painel administrativo, cadastro, dados, sistema, cadastro de dados, sistema de cadastro, sistema de cadastro online, sistema de cadastro gratuito, sistema de cadastro simples, sistema de cadastro fácil, sistema de cadastro rápido, sistema de cadastro seguro, sistema de cadastro eficiente, sistema de cadastro intuitivo">
+    <meta name="author" content=" Dérick campos santos, Derick, Dking">
+    <meta name="language" content="pt-BR">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="generator" content="Visual studio code">
+
+    <meta name="google-site-verification" content="Sngd0CJaS-1oIXu-2khI_ObmvaArwtgqaceLyc1cPWI" />
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"> <!-- Evitar cache -->
+    <meta http-equiv="Pragma" content="public">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+    <meta name="country" content="Brazil">
+    <meta name="language" content="Portuguese, PT-BR">
+    <meta name="geography" content="São Paulo, SP">
+    <meta name="copyright" content="https://sistemadecadastro-dcs.vercel.app/">
+
+    <meta name="googlebot" content="index, follow">
+    <meta name="baidubot" content="index, follow">
+    <meta name="slurp" content="index, follow">
+    <meta name="yahoobot" content="index, follow">
+    <meta name="unknownbot" content="index, follow">
+    <meta name="msnbot" content="index, follow">
+    <meta name="robots" content="index,follow">
+
+    <meta property="og:description" content="Sistema de cadastro">
+
+    <meta property="og:title" content="Sistema de cadastro - DCS">
+    <meta property="og:url" content="https://sistemadecadastro-dcs.vercel.app/">
+    <meta property="og:site_name" content="Sistema de cadastro - DCS">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./img/logo DCS.png">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="700">
+    <meta property="og:image:height" content="366">
+  <title>Home</title>
   <link rel="stylesheet" href="./css/home.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://unpkg.com/scrollreveal"></script>
@@ -24,10 +62,11 @@
         <li><a onclick="window.location.href = '/cadastro';">Cadastro</a></li>
       </ul>
       <div class="menu-mobile" onclick="toggleMenu()">
-        <span>&#9776;</span>
+        <i class="fa-solid fa-bars"></i>
       </div>
     </nav>
   </header>
+  
 
   <!-- Carrossel de Banners -->
   <section id="home" class="carousel">
@@ -77,7 +116,8 @@
   <!-- Formulário de Contato -->
   <section class="contact" id="contato">
     <h2>Contato</h2>
-    <form action="#" method="POST">
+    <form action="#" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="7afef111-f5c2-489a-b093-c7965b1cd9bc"> 
       <label for="nome">Nome:</label>
       <input type="text" id="nome" name="nome" required>
       
@@ -103,5 +143,40 @@
   </footer>
 
   <script src="./js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Função para alternar o menu mobile
+      function toggleMenu() {
+        const menu = document.querySelector('.navbar .menu ul');
+        if (menu) {
+          menu.classList.toggle('show');
+        } else {
+          console.error('Menu não encontrado!');
+        }
+      }
+    
+      const menuMobile = document.querySelector('.menu-mobile');
+      const menu = document.querySelector('.navbar .menu ul');
+    
+      if (menuMobile && menu) {
+        menuMobile.addEventListener('click', (event) => {
+          event.stopPropagation(); // Impede o clique fora de fechar o menu
+          toggleMenu();
+        });
+      } else {
+        console.error('Elemento menu ou menu-mobile não encontrado!');
+      }
+    
+      document.addEventListener('click', (event) => {
+        const menu = document.querySelector('.navbar .menu ul');
+        const menuMobile = document.querySelector('.menu-mobile');
+        
+        // Fecha o menu quando clicar fora dele
+        if (menu && !menu.contains(event.target) && !menuMobile.contains(event.target)) {
+          menu.classList.remove('show');
+        }
+      });
+    });
+    </script>
 </body>
 </html>

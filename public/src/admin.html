@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="./css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Adicionando Chart.js -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 <body>
@@ -22,7 +23,7 @@
         <li><a id="viewGuestsBtn">Visão geral</a></li>
       </ul>
       <div class="menu-mobile" onclick="toggleMenu()">
-        <span>&#9776;</span>
+        <i class="fa-solid fa-bars"></i>
       </div>
     </nav>
   </header>
@@ -96,9 +97,43 @@
   </footer>
 
   <script src="./js/script.js"></script>
-  <!-- Carrega o jsPDF -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.22/jspdf.plugin.autotable.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Função para alternar o menu mobile
+      function toggleMenu() {
+        const menu = document.querySelector('.navbar .menu ul');
+        if (menu) {
+          menu.classList.toggle('show');
+        } else {
+          console.error('Menu não encontrado!');
+        }
+      }
+    
+      const menuMobile = document.querySelector('.menu-mobile');
+      const menu = document.querySelector('.navbar .menu ul');
+    
+      if (menuMobile && menu) {
+        menuMobile.addEventListener('click', (event) => {
+          event.stopPropagation(); // Impede o clique fora de fechar o menu
+          toggleMenu();
+        });
+      } else {
+        console.error('Elemento menu ou menu-mobile não encontrado!');
+      }
+    
+      document.addEventListener('click', (event) => {
+        const menu = document.querySelector('.navbar .menu ul');
+        const menuMobile = document.querySelector('.menu-mobile');
+        
+        // Fecha o menu quando clicar fora dele
+        if (menu && !menu.contains(event.target) && !menuMobile.contains(event.target)) {
+          menu.classList.remove('show');
+        }
+      });
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.22/jspdf.plugin.autotable.min.js"></script>
 
 </body>
 </html>
