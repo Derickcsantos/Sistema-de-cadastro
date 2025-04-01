@@ -94,13 +94,14 @@ body {
 .carousel-slide img {
   width: 100%;
   height: auto;
+  max-height: 700px;
 }
 
 /* Sobre o Sistema */
 .about {
   text-align: center;
   padding: 50px;
-  background-color: #f4f4f4;
+  background-color: #fff;
 }
 
 .about h2 {
@@ -210,7 +211,7 @@ body {
 /* Contato */
 .contact {
   padding: 50px;
-  background-color: #f4f4f4;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -229,7 +230,7 @@ body {
   padding: 20px;
   max-width: 600px;
   width: 100%;
-  background-color: #f4f4f4;
+  background-color: #fcfcfc;
   border: 1px solid #ccc;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -240,6 +241,7 @@ body {
   width: 100%;
   border-radius: 10px;
   margin-bottom: 10px;
+  background-color: #fcfcfc;
   border: 1px solid #ccc;
 }
 
